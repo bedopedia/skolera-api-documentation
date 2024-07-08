@@ -1,0 +1,202 @@
+openapi: 3.0.3
+x-stoplight:
+  id: w0x7jgxztaewk
+info:
+  title: Grades Summary
+  version: '1.0'
+  description: API for managing grades summaries
+servers:
+  - url: 'http://localhost:3000'
+tags:
+  - name: GradesSummary
+    description: Operations related to Grades Summary
+paths:
+  /grades_summaries:
+    get:
+      description: Get all grades summaries
+      operationId: getGradesSummaries
+      tags:
+        - GradesSummary
+      responses:
+        '200':
+          description: A list of grades summaries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GradesSummary'
+    post:
+      description: Create a new grades summary
+      operationId: createGradesSummary
+      tags:
+        - GradesSummary
+      requestBody:
+        description: Grades summary to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GradesSummary'
+      responses:
+        '201':
+          description: Grades summary created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GradesSummary'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+  '/grades_summaries/{id}':
+    get:
+      description: Get a grades summary by ID
+      operationId: getGradesSummary
+      tags:
+        - GradesSummary
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Grades summary details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GradesSummary'
+        '404':
+          description: Not found
+    patch:
+      description: Update a grades summary by ID (partial)
+      operationId: patchGradesSummary
+      tags:
+        - GradesSummary
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Grades summary data to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GradesSummary'
+      responses:
+        '204':
+          description: No content
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    put:
+      description: Update a grades summary by ID
+      operationId: updateGradesSummary
+      tags:
+        - GradesSummary
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Grades summary data to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GradesSummary'
+      responses:
+        '204':
+          description: No content
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    delete:
+      description: Delete a grades summary by ID
+      operationId: deleteGradesSummary
+      tags:
+        - GradesSummary
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No content
+        '404':
+          description: Not found
+components:
+  schemas:
+    GradesSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        student_id:
+          type: integer
+        student_name:
+          type: string
+        academic_year_id:
+          type: integer
+        academic_year_name:
+          type: string
+        course_id:
+          type: integer
+        course_name:
+          type: string
+        main_grading_period_id:
+          type: integer
+        main_grading_period_name:
+          type: string
+        main_grading_period_weight:
+          type: number
+        sub_grading_period_id:
+          type: integer
+        sub_grading_period_name:
+          type: string
+        sub_grading_period_weight:
+          type: number
+        main_gategory_id:
+          type: integer
+        main_gategory_name:
+          type: string
+        main_gategory_weight:
+          type: number
+        sub_gategory_id:
+          type: integer
+        sub_gategory_name:
+          type: string
+        sub_gategory_weight:
+          type: number
+        student_grade_in_sub_gategory:
+          type: number
+        student_grade_in_category:
+          type: number
+        student_grade_in_sub_grading_period:
+          type: number
+        student_grade_in_main_grading_period:
+          type: number
+    Errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
