@@ -45,7 +45,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GradesSummary'
-        '400':
+        '422':
           description: bad request
           content:
             application/json:
@@ -71,7 +71,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GradesSummary'
         '404':
-          description: Not found
+          description: Unprocessable entity
     patch:
       description: Update a grades summary by ID (partial)
       operationId: patchGradesSummary
