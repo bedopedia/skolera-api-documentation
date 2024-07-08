@@ -1,0 +1,198 @@
+openapi: 3.0.3
+x-stoplight:
+  id: dje0t6dv7rv98
+info:
+  title: Doorkeeper_API
+  description: API documentation for Doorkeeper endpoints
+  version: '1.0'
+tags:
+  - name: OAuth Authorization
+    description: Endpoints related to OAuth authorization
+  - name: OAuth Tokens
+    description: Endpoints related to OAuth tokens
+  - name: OAuth Applications
+    description: Endpoints related to OAuth applications
+  - name: OAuth Authorized Applications
+    description: Endpoints related to OAuth authorized applications
+  - name: OAuth Token Info
+    description: Endpoint to retrieve OAuth token information
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /oauth/authorize/native:
+    get:
+      tags:
+        - OAuth Authorization
+      summary: Show native OAuth authorization
+      responses:
+        '200':
+          description: Success
+  /oauth/authorize:
+    get:
+      tags:
+        - OAuth Authorization
+      summary: New OAuth authorization
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - OAuth Authorization
+      summary: Create OAuth authorization
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - OAuth Authorization
+      summary: Destroy OAuth authorization
+      responses:
+        '200':
+          description: Success
+  /oauth/token:
+    post:
+      tags:
+        - OAuth Tokens
+      summary: Create OAuth token
+      responses:
+        '200':
+          description: Success
+  /oauth/revoke:
+    post:
+      tags:
+        - OAuth Tokens
+      summary: Revoke OAuth token
+      responses:
+        '200':
+          description: Success
+  /oauth/introspect:
+    post:
+      tags:
+        - OAuth Tokens
+      summary: Introspect OAuth token
+      responses:
+        '200':
+          description: Success
+  /oauth/applications:
+    get:
+      tags:
+        - OAuth Applications
+      summary: List OAuth applications
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - OAuth Applications
+      summary: Create OAuth application
+      responses:
+        '200':
+          description: Success
+  /oauth/applications/new:
+    get:
+      tags:
+        - OAuth Applications
+      summary: New OAuth application
+      responses:
+        '200':
+          description: Success
+  /oauth/applications/{id}/edit:
+    get:
+      tags:
+        - OAuth Applications
+      summary: Edit OAuth application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /oauth/applications/{id}:
+    get:
+      tags:
+        - OAuth Applications
+      summary: Show OAuth application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - OAuth Applications
+      summary: Update OAuth application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - OAuth Applications
+      summary: Update OAuth application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - OAuth Applications
+      summary: Destroy OAuth application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /oauth/authorized_applications:
+    get:
+      tags:
+        - OAuth Authorized Applications
+      summary: List OAuth authorized applications
+      responses:
+        '200':
+          description: Success
+  /oauth/authorized_applications/{id}:
+    delete:
+      tags:
+        - OAuth Authorized Applications
+      summary: Destroy OAuth authorized application
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /oauth/token/info:
+    get:
+      tags:
+        - OAuth Token Info
+      summary: Show OAuth token information
+      responses:
+        '200':
+          description: Success
+
+components:
+  schemas: {}
