@@ -1,6 +1,6 @@
 openapi: 3.0.3
 x-stoplight:
-  id: w0x7jgxztaewk
+  id: 5tupfyxet147b
 info:
   title: Grades Summary
   version: '1.0'
@@ -13,7 +13,7 @@ tags:
 paths:
   /grades_summaries:
     get:
-      description: Get all grades summaries
+      summary: Get all grades summaries
       operationId: getGradesSummaries
       tags:
         - GradesSummary
@@ -27,7 +27,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/GradesSummary'
     post:
-      description: Create a new grades summary
+      summary: Create a new grades summary
       operationId: createGradesSummary
       tags:
         - GradesSummary
@@ -46,14 +46,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/GradesSummary'
         '422':
-          description: bad request
+          description: Unprocessable entity
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Errors'
   '/grades_summaries/{id}':
     get:
-      description: Get a grades summary by ID
+      summary: Get a grades summary by ID
       operationId: getGradesSummary
       tags:
         - GradesSummary
@@ -71,9 +71,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GradesSummary'
         '404':
-          description: Unprocessable entity
+          description: Not found
     patch:
-      description: Update a grades summary by ID (partial)
+      summary: Update a grades summary by ID (partial)
       operationId: patchGradesSummary
       tags:
         - GradesSummary
@@ -100,7 +100,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
     put:
-      description: Update a grades summary by ID
+      summary: Update a grades summary by ID
       operationId: updateGradesSummary
       tags:
         - GradesSummary
@@ -127,7 +127,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
     delete:
-      description: Delete a grades summary by ID
+      summary: Delete a grades summary by ID
       operationId: deleteGradesSummary
       tags:
         - GradesSummary
