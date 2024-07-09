@@ -1,0 +1,45 @@
+openapi: 3.0.3
+x-stoplight:
+  id: 1to8s7xn3cumu
+info:
+  title: Health_Check
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /:
+    get:
+      tags:
+        - Health Check
+      description: Returns the health status of the application.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Health check message
+                    example: "Hello World! Skolera development API does live here."
+  /api:
+    get:
+      tags:
+        - Health Check
+      description: Returns the health status of the application.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Health check message
+                    example: "Hello World! Skolera development API does live here."
+components:
+  schemas: {}
