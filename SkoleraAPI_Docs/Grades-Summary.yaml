@@ -1,20 +1,16 @@
 openapi: 3.0.3
 x-stoplight:
-  id: 5tupfyxet147b
+  id: 9kf7vfjc5712g
 info:
   title: Grades Summary
   version: '1.0'
   description: API for managing grades summaries
 servers:
   - url: 'http://localhost:3000'
-tags:
-  - name: GradesSummary
-    description: Operations related to Grades Summary
 paths:
   /grades_summaries:
     get:
       summary: Get all grades summaries
-      operationId: getGradesSummaries
       tags:
         - GradesSummary
       responses:
@@ -28,7 +24,6 @@ paths:
                   $ref: '#/components/schemas/GradesSummary'
     post:
       summary: Create a new grades summary
-      operationId: createGradesSummary
       tags:
         - GradesSummary
       requestBody:
@@ -54,7 +49,6 @@ paths:
   '/grades_summaries/{id}':
     get:
       summary: Get a grades summary by ID
-      operationId: getGradesSummary
       tags:
         - GradesSummary
       parameters:
@@ -74,7 +68,6 @@ paths:
           description: Not found
     patch:
       summary: Update a grades summary by ID (partial)
-      operationId: patchGradesSummary
       tags:
         - GradesSummary
       parameters:
@@ -101,7 +94,6 @@ paths:
                 $ref: '#/components/schemas/Errors'
     put:
       summary: Update a grades summary by ID
-      operationId: updateGradesSummary
       tags:
         - GradesSummary
       parameters:
@@ -128,7 +120,6 @@ paths:
                 $ref: '#/components/schemas/Errors'
     delete:
       summary: Delete a grades summary by ID
-      operationId: deleteGradesSummary
       tags:
         - GradesSummary
       parameters:
